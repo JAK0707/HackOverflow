@@ -1,0 +1,130 @@
+/* General Landing Page Styling */
+.landing-page {
+  background: linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%);
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 0;
+}
+
+/* Title Styling */
+.landing-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.landing-title .highlight {
+  color: #ff5722;
+  font-weight: 900;
+}
+
+/* Subtitle Styling */
+.landing-subtitle {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+/* Button Styling */
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border: 2px solid #6c757d;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  color: #343a40;
+  border-color: #343a40;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styling */
+.landing-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.landing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.landing-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.landing-card .card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Row Styling */
+.row {
+  display: flex; /* Use flexbox for horizontal alignment */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  gap: 1.5rem; /* Add spacing between cards */
+  justify-content: center; /* Center the cards */
+}
+
+.row > .col-md-4 {
+  flex: 0 0 calc(33.333% - 1.5rem); /* Ensure three cards per row with spacing */
+  max-width: calc(33.333% - 1.5rem);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 3rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .btn-primary,
+  .btn-outline-secondary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .landing-card .card-title {
+    font-size: 1.3rem;
+  }
+
+  .landing-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  .row > .col-md-4 {
+    flex: 0 0 100%; /* Stack cards vertically on smaller screens */
+    max-width: 100%;
+  }
+}

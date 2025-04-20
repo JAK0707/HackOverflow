@@ -1,0 +1,164 @@
+body {
+  background: linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%); /* Match BuyModels background */
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Home page card styles */
+.home-card {
+  background-color: #ffffff;
+  border-radius: 20px; /* Increase border radius for a modern look */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.home-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 14px 40px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+}
+
+/* Enhance card icon */
+.home-card .card-icon {
+  font-size: 4rem; /* Larger icon size */
+  color: #007bff;
+  background: linear-gradient(135deg, #e3eeff, #d0e1ff); /* Gradient background for icon */
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto; /* Add spacing around the icon */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Icon shadow */
+}
+
+/* Enhance card title font */
+.home-card .card-title {
+  font-weight: 800;
+  font-size: 1.5rem; /* Larger font size */
+  color: #343a40;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 20px 0; /* Add spacing around the title */
+}
+
+.home-card .card-body {
+  padding: 20px; /* Add padding inside the card */
+  text-align: center;
+}
+
+.home-card .btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-card .btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* CloudGPU card styles (reuse home-card styles) */
+.home-card {
+  /* ...existing styles... */
+}
+
+.home-card .card-icon {
+  /* ...existing styles... */
+}
+
+.home-card .btn {
+  /* ...existing styles... */
+}
+
+.home-card .btn:hover {
+  /* ...existing styles... */
+}
+
+/* Add specific styles for CloudGPU cards if needed */
+
+/* Dashboard heading styles */
+.container h2 {
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  font-weight: 800; /* Extra bold */
+  font-size: 2rem; /* Larger font size */
+  color: #007bff; /* Primary color */
+  text-transform: uppercase; /* Make it uppercase */
+  letter-spacing: 1px; /* Add spacing between letters */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+}
+
+body.dark-mode .home-card {
+  background-color: #2a2a2a; /* Darker card background */
+  color: #ffffff; /* White text for all card content */
+  border: 1px solid #444; /* Subtle border for contrast */
+}
+
+body.dark-mode .home-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); /* Light shadow */
+}
+
+body.dark-mode .home-card .card-icon {
+  color: #ffffff; /* White icon color */
+}
+
+body.dark-mode .home-card .card-title {
+  color: #ffffff; /* White text color for titles */
+}
+
+body.dark-mode .container h2 {
+  color: #4dabf7; /* Lighter blue for headings */
+}
+
+body.dark-mode footer {
+  color: #e0e0e0; /* Light gray text for better contrast */
+  background-color: #1e1e1e; /* Dark background for footer */
+}
+
+/* Three-column layout styles */
+.row-cols-md-3 {
+  display: flex; /* Use flexbox for horizontal alignment */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  gap: 1.5rem; /* Add spacing between cards */
+}
+
+.row-cols-md-3 > * {
+  flex: 0 0 calc(33.333% - 1.5rem); /* Ensure three cards per row with spacing */
+  max-width: calc(33.333% - 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .row-cols-md-3 > * {
+    flex: 0 0 100%; /* Stack cards vertically on smaller screens */
+    max-width: 100%;
+  }
+}
+
+/* Footer styling (remove fixed positioning) */
+footer {
+  position: relative; /* Allow footer to flow naturally */
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+  z-index: 1030;
+}

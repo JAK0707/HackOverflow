@@ -1,0 +1,126 @@
+body {
+  background: linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%);
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.app-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.app-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.app-creator {
+  font-size: 1rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.app-description {
+  font-size: 1rem;
+  color: #495057;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-badge {
+  border-radius: 15px;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(145deg, #17a2b8, #138496);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1), -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+.app-button {
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.app-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.row > .col-md-4 {
+  flex: 0 0 calc(33.333% - 1.5rem);
+  max-width: calc(33.333% - 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .app-card {
+    padding: 15px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .app-description {
+    font-size: 0.9rem;
+  }
+
+  .app-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .row > .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

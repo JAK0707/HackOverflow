@@ -1,0 +1,103 @@
+/* Underline the active route */
+.navbar .nav-link.active-route {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #212529;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center; /* Center align nav link text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.navbar .nav-link:hover {
+  background-color: #f8f9fa;
+  color: #0056b3;
+}
+
+/* Sticky navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  width: 100%; /* Ensure navbar spans the full width */
+  background-color: #ffffff; /* Solid white background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-bottom: 2px solid #f0f0f0; /* Add a bottom border */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; /* Ensure text alignment */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Add shadow and background color when scrolled */
+.navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the brand text */
+.navbar .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif; /* Use a modern font */
+  transition: color 0.3s ease;
+  text-align: center; /* Center align brand text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.navbar .navbar-brand:hover {
+  color: #0056b3;
+}
+
+.navbar .navbar-brand .brand-highlight {
+  color: #ff5722; /* Highlight the "x" in a different color */
+  font-weight: 900; /* Make it extra bold */
+}
+
+.navbar .navbar-nav {
+  display: flex;
+  gap: 1.5rem; /* Space between nav items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Align nav items vertically */
+  justify-content: flex-end; /* Align nav items to the right */
+  flex-grow: 1; /* Allow nav items to take up remaining space */
+}
+
+.navbar .nav-item {
+  display: inline-block;
+  text-align: center; /* Center align nav item text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .navbar .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+}

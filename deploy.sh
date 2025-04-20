@@ -1,0 +1,2 @@
+cargo build --release --target wasm32-unknown-unknown --package identity-kit-example-backend
+candid-extractor target/wasm32-unknown-unknown/release/identity_kit_example_backend.wasm > src/identity-kit-example-backend/identity-kit-example-backend.did
