@@ -4,23 +4,28 @@ const TrainWithBot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
+  // Fetching response directly from Gemini API using the hardcoded API key
   const fetchResponse = async (query) => {
+    const apiKey = 'AIzaSyDTPaU1XmJWCDaiqkk_SYBdFOBZzDW5DUE'; // Hardcoded API key
+
     try {
-      const apiUrl = process.env.REACT_APP_API_URL; // Ensure REACT_APP_API_URL is defined
-      const apiKey = process.env.GEMINI_API_KEY; // Ensure GEMINI_API_KEY is defined
-
-      if (!apiUrl || !apiKey) {
-        throw new Error('API URL or API Key is not defined in the environment variables.');
-      }
-
-      const response = await fetch(`${apiUrl}/answer`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({ query }),
-      });
+      // Corrected endpoint for Gemini 1.5 Pro (gemini-1.5-pro-latest)
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [{ text: query }],
+              },
+            ],
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -28,122 +33,116 @@ const TrainWithBot = () => {
       }
 
       const data = await response.json();
-      return data.answer || "Sorry, I couldn't find an answer to your question.";
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
+      return text;
     } catch (error) {
       console.error('Error fetching response:', error);
       return `An error occurred: ${error.message}`;
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
 
+    // Add user's message to state
     const userMessage = { sender: 'user', text: input };
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
 
+    // Fetch bot's response from Gemini API
     const botResponse = await fetchResponse(input);
     const botMessage = { sender: 'bot', text: botResponse };
 
-    setMessages(prev => [...prev, botMessage]);
+    // Add bot's message to state
+    setMessages((prev) => [...prev, botMessage]);
     setInput('');
   };
 
   return (
-    <div
-      className="container my-5"
-      style={{
-        background: 'var(--form-background, linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%))',
-        borderRadius: '15px',
-        padding: '20px',
-        color: 'var(--text-color, #333)',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-      }}
-    >
-      <h2
-        className="text-center mb-4"
-        style={{
-          fontWeight: 'bold',
-          fontSize: '2.5rem',
-          color: 'var(--heading-color, #4a4a4a)',
-        }}
-      >
-        🧠 Train With AI Guide
-      </h2>
-      <p
-        className="text-center mb-4"
-        style={{
-          fontSize: '1.2rem',
-          fontStyle: 'italic',
-          color: 'var(--subtext-color, #555)',
-        }}
-      >
-        Ask the AI guide anything about training models, best practices, or troubleshooting tips.
-      </p>
+    <div className="container-fluid my-5" style={{ fontFamily: 'Arial, sans-serif', height: '100vh' }}>
+      <h2 className="text-center mb-4" style={{ color: '#4CAF50', fontWeight: 'bold' }}>🧠 Train With AI Guide</h2>
       <div
         className="border rounded p-4 mb-4"
         style={{
-          height: '400px',
+          height: 'calc(100% - 150px)',
           overflowY: 'scroll',
-          background: 'var(--card-background, #ffffff)',
-          border: '1px solid var(--card-border, #ddd)',
-          boxShadow: 'inset 0 4px 8px rgba(0, 0, 0, 0.05)',
-          borderRadius: '10px',
+          background: '#f1f1f1',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          border: '1px solid #ddd',
+          color: '#000', // Set text color to black
         }}
       >
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`d-flex mb-3 ${msg.sender === 'user' ? 'justify-content-end' : 'justify-content-start'}`}
+            className={`mb-3 text-${msg.sender === 'user' ? 'end' : 'start'}`}
+            style={{
+              display: 'flex',
+              flexDirection: msg.sender === 'user' ? 'row-reverse' : 'row',
+              alignItems: 'center',
+            }}
           >
-            <div
-              className={`p-3 rounded ${
-                msg.sender === 'user' ? 'bg-light' : 'bg-info'
-              }`}
+            <span
+              className={`badge bg-${msg.sender === 'user' ? 'primary' : 'secondary'}`}
               style={{
-                maxWidth: '70%',
-                color: msg.sender === 'user' ? 'var(--user-text-color, #e0e0e0)' : 'var(--bot-text-color, #ffffff)',
-                fontSize: '1rem',
-                animation: 'fadeIn 0.5s ease',
+                padding: '0.5em 1em',
+                borderRadius: '20px',
+                fontSize: '0.9em',
               }}
             >
-              <strong>{msg.sender === 'user' ? 'You' : 'Bot'}</strong>
-              <pre className="mt-2 mb-0" style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
-                {msg.text}
-              </pre>
-            </div>
+              {msg.sender === 'user' ? 'You' : 'Bot'}
+            </span>
+            <pre
+              className="mt-2"
+              style={{
+                background: msg.sender === 'user' ? '#d1e7dd' : '#e2e3e5',
+                padding: '10px',
+                borderRadius: '10px',
+                margin: '0 10px',
+                whiteSpace: 'pre-wrap',
+                wordWrap: 'break-word',
+                maxWidth: '70%',
+                color: '#000', // Set text color to black
+              }}
+            >
+              {msg.text}
+            </pre>
           </div>
         ))}
       </div>
 
-      <form onSubmit={handleSubmit} className="d-flex">
+      <form
+        onSubmit={handleSubmit}
+        className="d-flex"
+        style={{
+          gap: '10px',
+          alignItems: 'center',
+        }}
+      >
         <input
-          className="form-control me-2"
+          className="form-control"
           value={input}
           placeholder="Ask: How do I train YOLOv8?"
           onChange={(e) => setInput(e.target.value)}
           style={{
-            borderRadius: '20px',
-            padding: '15px 20px',
-            fontSize: '1rem',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            border: '1px solid var(--input-border, #ccc)',
-            background: 'var(--input-background, #fff)',
-            color: 'var(--input-text-color, #333)',
+            flex: 1,
+            padding: '10px',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)',
+            width: '100%', // Make input box occupy full width
           }}
         />
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-success"
           style={{
-            borderRadius: '20px',
-            padding: '15px 25px',
-            fontSize: '1rem',
+            padding: '10px 20px',
+            borderRadius: '5px',
             fontWeight: 'bold',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            transition: 'background 0.3s ease',
-            background: 'var(--button-background, #007bff)',
-            color: 'var(--button-text-color, #fff)',
+            backgroundColor: '#4CAF50',
+            border: 'none',
           }}
         >
           Send

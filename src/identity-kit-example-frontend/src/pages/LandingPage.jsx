@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { ConnectWallet } from '@nfid/identitykit/react'; // Import ConnectWallet
 import './LandingPage.css'; // Import custom CSS for styling
 
 const LandingPage = () => {
@@ -35,7 +36,13 @@ const LandingPage = () => {
           <button className="btn btn-primary mx-2" onClick={() => navigate('/home')}>
             Enter Marketplace
           </button>
-          <button className="btn btn-outline-secondary mx-2">Login / Register</button>
+          <ConnectWallet
+            connectButtonComponent={({ onClick }) => (
+              <button className="btn btn-outline-secondary mx-2" onClick={onClick}>
+                Connect Wallet
+              </button>
+            )}
+          />
         </div>
 
         <div className="row mt-5">
