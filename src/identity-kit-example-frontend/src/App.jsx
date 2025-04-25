@@ -21,7 +21,6 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ThemeToggle from './components/ThemeToggle';
 
-import './index.scss';
 
 const ConnectBtn = ({ onClick }) => (
   <button onClick={onClick} className="bg-white">
