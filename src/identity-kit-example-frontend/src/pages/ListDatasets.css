@@ -1,0 +1,98 @@
+.list-datasets-container {
+  background: linear-gradient(135deg, #3d2b5e 0%, #1a1a1a 100%);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dataset-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dataset-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.dataset-detail {
+  margin-bottom: 8px;
+  color: #cccccc;
+}
+
+.dataset-button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  width: 100%;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dataset-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: scale(1.05);
+}
+
+.upload-dataset-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.upload-dataset-form {
+  background: #1a1a2e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #cccccc;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #2c2c3e;
+  color: white;
+}
+
+.form-control-file {
+  display: block;
+  margin-top: 10px;
+}
+
+.upload-dataset-button {
+  width: 100%;
+  padding: 10px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.upload-dataset-button:hover {
+  background: #ff4c4c;
+}

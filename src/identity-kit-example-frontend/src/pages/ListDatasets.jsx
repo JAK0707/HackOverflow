@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import { aixchange_backend } from '../../../declarations/aixchange_backend'; // ✅ Adjust if path differs
+import './ListDatasets.css'; // Import the new CSS file
 
 const ListDatasets = () => {
   const [datasets, setDatasets] = useState([]);
@@ -48,146 +48,119 @@ const ListDatasets = () => {
   };
 
   return (
-    <div className="container my-5">
-      <h2 className="mb-4 text-center" style={{ fontWeight: 'bold', fontSize: '2.5rem', color: 'var(--heading-color, #4a4a4a)' }}>
-        📤 Upload Dataset for Model Training
-      </h2>
-
-      <form
-        onSubmit={handleUpload}
-        className="border p-4 rounded shadow-sm mb-5"
-        style={{
-          background: 'var(--form-background, linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%))',
-          borderRadius: '15px',
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        <div className="mb-3">
-          <label className="form-label" style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>Dataset Name</label>
-          <input
-            className="form-control"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            style={{
-              borderRadius: '10px',
-              padding: '10px',
-              border: '1px solid var(--input-border, #ccc)',
-              background: 'var(--input-background, #fff)',
-              color: 'var(--input-text-color, #333)',
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label" style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>Stipend for Training (e.g. 1.8 ICP)</label>
-          <input
-            className="form-control"
-            name="stipend"
-            value={formData.stipend}
-            onChange={handleChange}
-            style={{
-              borderRadius: '10px',
-              padding: '10px',
-              border: '1px solid var(--input-border, #ccc)',
-              background: 'var(--input-background, #fff)',
-              color: 'var(--input-text-color, #333)',
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label" style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>Training Parameters (e.g. epochs=30, batch=16)</label>
-          <textarea
-            className="form-control"
-            name="parameters"
-            rows={3}
-            value={formData.parameters}
-            onChange={handleChange}
-            style={{
-              borderRadius: '10px',
-              padding: '10px',
-              border: '1px solid var(--input-border, #ccc)',
-              background: 'var(--input-background, #fff)',
-              color: 'var(--input-text-color, #333)',
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label" style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>Upload Dataset File</label>
-          <input
-            className="form-control"
-            type="file"
-            onChange={handleFileChange}
-            style={{
-              borderRadius: '10px',
-              padding: '10px',
-              border: '1px solid var(--input-border, #ccc)',
-              background: 'var(--input-background, #fff)',
-              color: 'var(--input-text-color, #333)',
-            }}
-          />
-        </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          style={{
-            borderRadius: '20px',
-            padding: '10px 20px',
-            fontWeight: 'bold',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            background: 'var(--button-background, #007bff)',
-            color: 'var(--button-text-color, #fff)',
-          }}
-        >
-          Upload Dataset
-        </button>
-      </form>
-
-      <h3 className="mb-3 text-center" style={{ fontWeight: 'bold', fontSize: '2rem', color: 'var(--heading-color, #4a4a4a)' }}>
-        🌍 Global Dataset Listings
-      </h3>
-      {datasets.length === 0 ? (
-        <p className="text-center" style={{ color: 'var(--subtext-color, #555)', fontStyle: 'italic' }}>No datasets listed yet.</p>
-      ) : (
-        <div className="row">
-          {datasets.map(ds => (
-            <div key={ds.id} className="col-md-6 mb-4">
-              <div
-                className="card shadow-sm"
-                style={{
-                  borderRadius: '15px',
-                  border: '1px solid var(--card-border, #ddd)',
-                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                  background: 'var(--card-background, #fff)',
-                  color: 'var(--text-color, #333)',
-                }}
-              >
-                <div className="card-body">
-                  <h5 className="card-title" style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>{ds.name}</h5>
-                  <p className="card-text" style={{ color: 'var(--subtext-color, #555)' }}>
-                    <strong>Uploaded by:</strong> {ds.uploader} <br />
-                    <strong>File:</strong> {ds.fileName} <br />
-                    <strong>Params:</strong> {ds.parameters} <br />
-                    <strong>Stipend:</strong> {ds.stipend}
-                  </p>
-                  <button
-                    className="btn btn-success"
-                    style={{
-                      borderRadius: '20px',
-                      padding: '10px 20px',
-                      fontWeight: 'bold',
-                      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                      background: 'var(--button-background, #28a745)',
-                      color: 'var(--button-text-color, #fff)',
-                    }}
-                  >
-                    Accept & Train
-                  </button>
-                </div>
+    <div className="list-datasets-container">
+      <div className="container my-5">
+      <h2 className="section-title" style={{color:"white"}}> Global Dataset Listings</h2>
+        <p className="text-center">Explore datasets shared by the community for AI model training.</p>
+        <div className="row mt-4"> {/* Added margin-top to the row */}
+          {[
+            {
+              title: "Medical Imaging Dataset",
+              uploader: "MedAI Labs",
+              file: "medical_images.zip",
+              params: "epochs=50, batch=32",
+              stipend: "2.5 ICP",
+            },
+            {
+              title: "E-commerce Transactions",
+              uploader: "CommerceAI",
+              file: "transactions.csv",
+              params: "epochs=30, batch=16",
+              stipend: "1.8 ICP",
+            },
+            {
+              title: "Weather Forecast Data",
+              uploader: "ClimateAI",
+              file: "weather_data.csv",
+              params: "epochs=40, batch=20",
+              stipend: "2.0 ICP",
+            },
+          ].map((dataset, idx) => (
+            <div key={idx} className="col-md-4 mb-4">
+              <div className="dataset-card">
+                <h5 className="dataset-title">{dataset.title}</h5>
+                <p className="dataset-detail"><strong>Uploaded by:</strong> {dataset.uploader}</p>
+                <p className="dataset-detail"><strong>File:</strong> {dataset.file}</p>
+                <p className="dataset-detail"><strong>Params:</strong> {dataset.params}</p>
+                <p className="dataset-detail"><strong>Stipend:</strong> {dataset.stipend}</p>
+                <button className="btn btn-primary dataset-button">Accept & Train</button>
               </div>
             </div>
           ))}
         </div>
-      )}
+      </div>
+
+      {/* Upload Dataset Form */}
+      <div className="container my-5">
+        <h2 className="upload-dataset-title">📤 <span style={{color:"white"}}>Upload Your Dataset</span></h2>
+        <form
+          onSubmit={handleUpload}
+          className="upload-dataset-form"
+        >
+          <div className="form-group">
+            <label className="form-label">Dataset Name</label>
+            <input
+              className="form-control"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Stipend for Training (e.g. 1.8 ICP)</label>
+            <input
+              className="form-control"
+              name="stipend"
+              value={formData.stipend}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Training Parameters (e.g. epochs=30, batch=16)</label>
+            <textarea
+              className="form-control"
+              name="parameters"
+              rows={3}
+              value={formData.parameters}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Upload Dataset File</label>
+            <input
+              className="form-control-file"
+              type="file"
+              onChange={handleFileChange}
+            />
+          </div>
+          <button
+            type="submit"
+            className="btn upload-dataset-button"
+          >
+            Upload Dataset
+          </button>
+        </form>
+
+        <h3 className="mb-3 text-center">🌍 Global Dataset Listings</h3>
+        {datasets.length === 0 ? (
+          <p className="text-center">No datasets listed yet.</p>
+        ) : (
+          <div className="row">
+            {datasets.map(ds => (
+              <div key={ds.id} className="col-md-6 mb-4">
+                <div className="dataset-card">
+                  <h5 className="dataset-title">{ds.name}</h5>
+                  <p className="dataset-detail"><strong>Uploaded by:</strong> {ds.uploader}</p>
+                  <p className="dataset-detail"><strong>File:</strong> {ds.fileName}</p>
+                  <p className="dataset-detail"><strong>Params:</strong> {ds.parameters}</p>
+                  <p className="dataset-detail"><strong>Stipend:</strong> {ds.stipend}</p>
+                  <button className="btn btn-primary dataset-button">Accept & Train</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

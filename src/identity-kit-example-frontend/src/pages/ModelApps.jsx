@@ -35,12 +35,12 @@ const ModelApps = () => {
 
   return (
     <div
-      className="container my-5"
+      
       style={{
-        background: 'linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%)', // Match BuyModels background
-        borderRadius: '20px',
+        background: 'linear-gradient(135deg, #3d2b5e 0%, #1a1a1a)', // Match BuyModels background
+        
         padding: '30px',
-        color: '#333',
+        color: 'white',
         boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
       }}
     >

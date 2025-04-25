@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ResearchAssistant.css'; // Import custom CSS for styling
 
 const trendingTopics = [
   "LLMs in Healthcare",
@@ -47,77 +48,78 @@ const ResearchAssistant = () => {
 
   return (
     <div
-      className="container my-5"
       style={{
-        background: 'linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%)', // Match BuyModels background
-        borderRadius: '20px',
+        background: 'linear-gradient(135deg, #3d2b5e 0%, #1a1a1a 100%)',
         padding: '30px',
-        color: '#333',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+        color: 'white',
       }}
     >
-      <h2
-        className="text-center mb-4"
-        style={{
-          fontWeight: 'bold',
-          fontSize: '2.5rem',
-          color: 'var(--heading-color, #333)',
-          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)', // Subtle shadow
-        }}
-      >
-        📚 AI Research Assistant
-      </h2>
+      {/* New Section */}
+      <div className="latest-research-section">
+        <h2 className="section-title">AI Research Assistant</h2>
+        <p className="section-subtitle">
+          Get personalized guidance for choosing and refining your research topic, whether you're a student or an experienced researcher.
+        </p>
 
-      <div className="row mb-5">
-        <div className="col-md-12">
-          <h5 style={{ fontWeight: 'bold', color: 'var(--text-color, #333)' }}>🔥 Trending Research Topics (2025)</h5>
-          <ul className="list-group">
-            {trendingTopics.map((topic, idx) => (
-              <li
-                className="list-group-item"
-                key={idx}
-                style={{
-                  background: '#f8f9fa', // Subtle light gray background
-                  color: '#333',
-                  borderRadius: '8px',
-                  marginBottom: '10px',
-                  padding: '10px 15px', // Added padding inside the box
-                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Softer shadow
-                  transition: 'transform 0.2s, box-shadow 0.2s', // Smooth hover effect
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                  e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-                }}
-              >
-                {topic}
-              </li>
-            ))}
-          </ul>
+        <div className="latest-topics-card">
+          <h3 className="card-title">📘 Latest Research Topics in AI/ML</h3>
+          <p className="card-description">
+            Stay updated with cutting-edge advancements in Artificial Intelligence and Machine Learning. Explore trending topics, groundbreaking research, and emerging technologies in the field.
+          </p>
+          <div className="topics-grid">
+            <div className="topic-item">Generative AI</div>
+            <div className="topic-item">Reinforcement Learning</div>
+            <div className="topic-item">Explainable AI</div>
+            <div className="topic-item">AI Ethics</div>
+          </div>
+        </div>
+
+        <h3 className="process-title">Research Topic Selection Process</h3>
+        <div className="process-grid">
+          <div className="process-step">
+            <span className="step-icon">🔍</span>
+            <h4>Identify Interests</h4>
+            <p>Explore areas of interest and identify topics that excite you.</p>
+          </div>
+          <div className="process-step">
+            <span className="step-icon">📚</span>
+            <h4>Literature Review</h4>
+            <p>Review existing research to find gaps and opportunities.</p>
+          </div>
+          <div className="process-step">
+            <span className="step-icon">🎯</span>
+            <h4>Narrow Down</h4>
+            <p>Focus on a specific problem or question within your chosen area.</p>
+          </div>
+          <div className="process-step">
+            <span className="step-icon">📝</span>
+            <h4>Draft Proposal</h4>
+            <p>Write a clear and concise research proposal outlining your objectives.</p>
+          </div>
+          <div className="process-step">
+            <span className="step-icon">🤝</span>
+            <h4>Collaborate</h4>
+            <p>Discuss your ideas with peers or mentors for feedback.</p>
+          </div>
+          <div className="process-step">
+            <span className="step-icon">✅</span>
+            <h4>Finalize Topic</h4>
+            <p>Confirm your research topic and start planning your study.</p>
+          </div>
         </div>
       </div>
 
+      {/* Existing AI Guide Section */}
       <div
         className="card shadow-sm p-4"
         style={{
-          background: '#ffffff', // White background for the card
-          borderRadius: '12px',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Softer shadow
-          padding: '20px', // Added padding inside the card
-          color: '#000', // Black text for better readability
+          background: 'transparent',
+          borderRadius: '10px',
+          padding: '20px',
+          color: '#fff',
         }}
       >
-        <h5
-          className="mb-3"
-          style={{
-            fontWeight: 'bold',
-            color: '#000', // Black text for better readability
-          }}
-        >
+        <h5 className="mb-3" style={{ fontWeight: 'bold', color: '#fff' }}>
           🧠 Start Writing with Your AI Guide
         </h5>
         <div
@@ -125,12 +127,11 @@ const ResearchAssistant = () => {
           style={{
             maxHeight: '300px',
             overflowY: 'auto',
-            background: '#ffffff', // White background for the chat box
-            color: '#000', // Black text
-            padding: '15px', // Added padding inside the chat box
+            background: 'transparent',
+            color: '#fff',
+            padding: '15px',
             borderRadius: '10px',
-            border: '1px solid #ddd', // Light border
-            boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.05)', // Subtle inset shadow
+            border: '1px solid #555',
           }}
         >
           {chat.map((msg, idx) => (
@@ -138,10 +139,10 @@ const ResearchAssistant = () => {
               key={idx}
               style={{
                 marginBottom: '10px',
-                color: idx % 2 === 0 ? '#000' : '#555', // Black text for user messages
+                color: idx % 2 === 0 ? '#fff' : '#ccc',
                 fontWeight: idx % 2 === 0 ? 'bold' : 'normal',
-                background: idx % 2 === 0 ? '#ffffff' : '#f1f1f1', // Alternate subtle background colors
-                padding: '10px', // Added padding inside messages
+                background: idx % 2 === 0 ? 'transparent' : '#444',
+                padding: '10px',
                 borderRadius: '6px',
               }}
             >
@@ -161,9 +162,9 @@ const ResearchAssistant = () => {
               flex: '1',
               borderRadius: '10px 0 0 10px',
               padding: '10px 15px',
-              border: '1px solid #ddd',
-              background: '#ffffff',
-              color: '#000',
+              border: '1px solid #555',
+              background: '#2c2c2c',
+              color: '#fff',
               fontSize: '1rem',
             }}
           />
@@ -174,18 +175,9 @@ const ResearchAssistant = () => {
               borderRadius: '0 10px 10px 0',
               padding: '10px 20px',
               fontWeight: 'bold',
-              background: '#007bff', // Subtle blue background
+              background: '#007bff',
               color: '#fff',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Softer shadow
-              transition: 'transform 0.2s, box-shadow 0.2s', // Smooth hover effect
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.02)';
-              e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
             }}
           >
             Send

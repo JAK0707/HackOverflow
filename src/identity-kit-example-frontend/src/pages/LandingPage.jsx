@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ConnectWallet } from '@nfid/identitykit/react'; // Import ConnectWallet
 import './LandingPage.css'; // Import custom CSS for styling
 
 const LandingPage = () => {
@@ -24,56 +23,162 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page container-fluid">
-      <div className="container text-center">
-        <h1 className="landing-title">
-          🌐 AI<span className="highlight">x</span>Change
-        </h1>
-        <p className="landing-subtitle">
-          A Web3 + AI/ML platform for collaboration and innovation
-        </p>
+      <div className="container">
+        <div className="hero-section">
+          <div className="hero-content">
+            <div className="platform-badge">Web3 + AI Marketplace</div>
+            <h1 className="main-heading">
+              Revolutionize <span className="text-white">the</span><br />
+              Way You <br />
+              Build <span className="gradient-text">AI Models</span>
+            </h1>
+            <p className="main-description">
+              The first decentralized marketplace connecting AI developers,<br />
+              dataset providers, and GPU resources in one seamless ecosystem.
+            </p>
 
-        <div className="d-flex justify-content-center mb-5">
-          <button className="btn btn-primary mx-2" onClick={() => navigate('/home')}>
-            Enter Marketplace
-          </button>
-          <ConnectWallet
-            connectButtonComponent={({ onClick }) => (
-              <button className="btn btn-outline-secondary mx-2" onClick={onClick}>
-                Connect Wallet
-              </button>
-            )}
-          />
+            <div className="stats-container">
+              <div className="stat-item">
+                <span className="stat-number">500+</span>
+                <span className="stat-label">AI Models</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">10K+</span>
+                <span className="stat-label">Datasets</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">5K+</span>
+                <span className="stat-label">Developers</span>
+              </div>
+            </div>
+          </div>
+          <div className="hero-image">
+            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" alt="AI Technology" />
+          </div>
         </div>
 
-        <div className="row mt-5">
-          <div className="col-md-4 d-flex">
-            <div className="card landing-card flex-fill">
-              <div className="card-body text-center">
-                <h3 className="card-title">🤖 Train Models with Guidance</h3>
-                <p className="card-text">
-                  Use our AI chatbot to learn model training step-by-step.
-                </p>
-              </div>
+        <div className="button-container">
+          <button className="btn btn-primary" onClick={() => navigate('/home')}>
+            Enter Marketplace
+          </button>
+        </div>
+
+        <div className="features-section">
+          <h2 className="features-title">
+            <span style={{color
+: 'white'
+            }}>Comprehensive</span> <span className="gradient-text">AI Platform</span> <span style={{color
+              : 'white'
+                          }}>Features</span>
+          </h2>
+          <p className="features-subtitle">
+            Everything you need to develop, train, and monetize AI models in one place.
+          </p>
+          
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon pink-icon">🤖</div>
+              <h3 className="feature-title">AI Training Assistant</h3>
+              <p className="feature-description">
+                Get step-by-step guidance for training your AI models with our interactive chatbot.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon blue-icon">🗂️</div>
+              <h3 className="feature-title">Dataset Marketplace</h3>
+              <p className="feature-description">
+                Browse, buy, or sell datasets from around the world to train your AI models.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon purple-icon">⚙️</div>
+              <h3 className="feature-title">Model Marketplace</h3>
+              <p className="feature-description">
+                Discover pre-trained AI models for your specific use case or sell your own.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon green-icon">📚</div>
+              <h3 className="feature-title">Research Paper Assistant</h3>
+              <p className="feature-description">
+                Get guidance on trending topics and help with writing AI research papers.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon orange-icon">📱</div>
+              <h3 className="feature-title">Custom App Showcase</h3>
+              <p className="feature-description">
+                Explore custom AI applications built by the community or showcase your own.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon cyan-icon">☁️</div>
+              <h3 className="feature-title">Cloud GPU Resources</h3>
+              <p className="feature-description">
+                Access on-demand GPU computing power for training your AI models.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon pink-icon">💬</div>
+              <h3 className="feature-title">Community Interaction</h3>
+              <p className="feature-description">
+                Connect with other AI developers, researchers, and enthusiasts in real-time.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon green-icon">📖</div>
+              <h3 className="feature-title">Courses</h3>
+              <p className="feature-description">
+                Explore AI/ML and Web3 courses curated by experts to boost your skills and portfolio.
+              </p>
             </div>
           </div>
-          <div className="col-md-4 d-flex">
-            <div className="card landing-card flex-fill">
-              <div className="card-body text-center">
-                <h3 className="card-title">🗂️ Share Datasets</h3>
-                <p className="card-text">
-                  Upload datasets & let others train for you with incentives.
-                </p>
-              </div>
-            </div>
+        </div>
+
+        <div className="why-choose-section">
+          <div className="why-choose-content">
+            <h2 className="why-choose-title">
+              Why Choose Our <span className="gradient-text">AI Marketplace?</span>
+            </h2>
+            <p className="why-choose-description">
+              Our platform offers unique advantages that set us apart from traditional AI development environments.
+            </p>
+            <ul className="why-choose-list">
+              <li>
+                <span className="why-choose-icon">🔒</span>
+                <div>
+                  <h3>Secure Blockchain Integration</h3>
+                  <p>All transactions and model ownership are secured by blockchain technology, ensuring immutable records and transparency.</p>
+                </div>
+              </li>
+              <li>
+                <span className="why-choose-icon">⚡</span>
+                <div>
+                  <h3>Distributed Computing Power</h3>
+                  <p>Access a global network of GPUs to speed up your model training at a fraction of traditional cloud costs.</p>
+                </div>
+              </li>
+              <li>
+                <span className="why-choose-icon">⏱️</span>
+                <div>
+                  <h3>Time-to-Market Acceleration</h3>
+                  <p>Reduce development time by 60% with our streamlined workflows, pre-trained models, and expert guidance.</p>
+                </div>
+              </li>
+              <li>
+                <span className="why-choose-icon">💰</span>
+                <div>
+                  <h3>Monetize Your AI Assets</h3>
+                  <p>Generate passive income by sharing your datasets, renting your GPU, or selling your custom AI models.</p>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div className="col-md-4 d-flex">
-            <div className="card landing-card flex-fill">
-              <div className="card-body text-center">
-                <h3 className="card-title">🧠 Buy AI Models</h3>
-                <p className="card-text">
-                  Browse and purchase pre-trained models.
-                </p>
-              </div>
+          <div className="why-choose-image">
+            <img src="https://images.pexels.com/photos/8438982/pexels-photo-8438982.jpeg?auto=compress&cs=tinysrgb&w=800" alt="AI Marketplace" />
+            <div className="image-caption">
+              <h3>Join the AI Revolution</h3>
+              <p>Our marketplace connects over 5,000 AI developers with resources they need.</p>
             </div>
           </div>
         </div>

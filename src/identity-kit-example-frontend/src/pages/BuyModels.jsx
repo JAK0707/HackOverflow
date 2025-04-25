@@ -1,164 +1,140 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './BuyModels.css'; // Import the new CSS file
 
 const BuyModels = () => {
-  const [models, setModels] = useState([
+  const models = [
     {
       id: 1,
-      name: "YOLOv8 Object Detector",
-      description: "Trained on COCO dataset, suitable for general object detection.",
-      price: "3.60 ICP",
-      type: "Computer Vision",
-      seller: "VisionMaster.ai",
-      rating: 4.8
+      name: "Anomaly Detection Framework",
+      description: "Identify outliers and anomalies in complex datasets for fraud detection and quality control.",
+      price: "$199.00",
+      type: "Anomaly Detection",
+      rating: 4.6,
+      downloads: 412,
+      image: "https://images.pexels.com/photos/7319080/pexels-photo-7319080.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "DetectionAI",
     },
     {
       id: 2,
-      name: "Sentiment Analysis BERT",
-      description: "Fine-tuned on Twitter and IMDb reviews, works great for feedback classification.",
-      price: "5.00 ICP",
-      type: "NLP",
-      seller: "NLPWizard",
-      rating: 4.5
+      name: "Image Segmentation Model",
+      description: "Pixel-level segmentation for medical imaging, autonomous driving, and scene understanding.",
+      price: "$249.00",
+      type: "Computer Vision",
+      rating: 4.7,
+      downloads: 583,
+      image: "https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "PixelAI",
     },
     {
       id: 3,
-      name: "Tabular Fraud Classifier",
-      description: "XGBoost-based fraud detection model for transactional datasets.",
-      price: "2.70 ICP",
-      type: "Tabular Data",
-      seller: "SecureML.in",
-      rating: 4.7
-    }
-  ]);
-
-  const handleBuy = (id) => {
-    const selectedModel = models.find(m => m.id === id);
-    alert(`🛒 You have purchased ${selectedModel?.name} from ${selectedModel?.seller} for ${selectedModel?.price}`);
-    // Later: Connect to payment/Web3 backend
-  };
+      name: "Recommendation Engine",
+      description: "Personalized recommendation system trained on diverse e-commerce and content platforms.",
+      price: "$179.00",
+      type: "Recommendation",
+      rating: 4.3,
+      downloads: 776,
+      image: "https://images.pexels.com/photos/5077393/pexels-photo-5077393.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "RecAI",
+    },
+    {
+      id: 4,
+      name: "Speech-to-Text Transcription",
+      description: "Highly accurate multi-language transcription with support for domain-specific terminology.",
+      price: "$99.00",
+      type: "Speech",
+      rating: 4.4,
+      downloads: 925,
+      image: "https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "VoiceAI",
+    },
+    {
+      id: 5,
+      name: "Deep Reinforcement Learning for Robotics",
+      description: "Pre-trained model for robotic control tasks with efficient learning and adaptation.",
+      price: "$349.00",
+      type: "Reinforcement Learning",
+      rating: 4.8,
+      downloads: 438,
+      image: "https://images.pexels.com/photos/8566358/pexels-photo-8566358.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "RoboAI",
+    },
+    {
+      id: 6,
+      name: "Time Series Forecasting Model",
+      description: "Accurate forecasting for financial data, weather patterns, and other time-dependent variables.",
+      price: "$199.00",
+      type: "Forecasting",
+      rating: 4.5,
+      downloads: 612,
+      image: "https://images.pexels.com/photos/186464/pexels-photo-186464.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "PredictiveAI",
+    },
+    {
+      id: 7,
+      name: "Multilingual Sentiment Analysis",
+      description: "Support for 50+ languages with 92% accuracy for sentiment analysis on social media content.",
+      price: "$149.00",
+      type: "NLP",
+      rating: 4.6,
+      downloads: 723,
+      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "GlobalNLP",
+    },
+    {
+      id: 8,
+      name: "Vision Transformer for Object Detection",
+      description: "State-of-the-art object detection model based on Vision Transformer architecture with 95% mAP.",
+      price: "Free",
+      type: "Computer Vision",
+      rating: 4.7,
+      downloads: 856,
+      image: "https://images.pexels.com/photos/3888151/pexels-photo-3888151.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "DeepVision",
+    },
+    {
+      id: 9,
+      name: "GPT-4 Optimized for Medical Research",
+      description: "A specialized language model fine-tuned for medical research and diagnosis with 99.2% accuracy.",
+      price: "$299.00",
+      type: "NLP",
+      rating: 4.9,
+      downloads: 1248,
+      image: "https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800",
+      provider: "MedAI Labs",
+    },
+  ];
 
   return (
-    <div
-      className="container my-5"
-      style={{
-        background: 'linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%)',
-        borderRadius: '20px',
-        padding: '30px',
-        color: '#333',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
-      }}
-    >
-      <h2
-        className="text-center mb-4"
-        style={{
-          fontWeight: 'bold',
-          fontSize: '3rem',
-          color: '#4a4a4a',
-          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        🧠 AI Model Marketplace
-      </h2>
+    <div className="buy-models-container">
+      <h2 className="section-title">AI Models Marketplace</h2>
+      <p className="text-center">Discover and purchase pre-trained AI models for various applications and domains.</p>
 
-      <div className="row">
+      <div className="search-filter-section">
+        <input type="text" className="search-bar" placeholder="Search models..." />
+        <div className="filter-buttons">
+          <button className="filter-btn active">All</button>
+          <button className="filter-btn">Free</button>
+          <button className="filter-btn">Paid</button>
+        </div>
+      </div>
+
+      <div className="row mt-4">
         {models.map((model) => (
           <div className="col-md-4 mb-4" key={model.id}>
-            <div
-              className="card h-100 shadow-sm"
-              style={{
-                borderRadius: '20px',
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                background: 'linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%)',
-                boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.08)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.1)';
-              }}
-            >
-              <div className="card-body">
-                <h5
-                  className="card-title"
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: '1.8rem',
-                    color: '#333',
-                  }}
-                >
-                  {model.name}
-                </h5>
-                <h6
-                  className="card-subtitle mb-2"
-                  style={{
-                    color: '#555',
-                    fontStyle: 'italic',
-                  }}
-                >
-                  {model.type}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: '#666',
-                    fontSize: '1rem',
-                  }}
-                >
-                  {model.description}
-                </p>
-                <p
-                  className="mb-1"
-                  style={{
-                    fontWeight: 'bold',
-                    color: '#444',
-                  }}
-                >
-                  <strong>Price:</strong> {model.price}
-                </p>
-                <p
-                  className="mb-1"
-                  style={{
-                    fontWeight: 'bold',
-                    color: '#444',
-                  }}
-                >
-                  <strong>Seller:</strong> {model.seller}
-                </p>
-                <p
-                  style={{
-                    fontWeight: 'bold',
-                    color: '#444',
-                  }}
-                >
-                  <strong>Rating:</strong> ⭐ {model.rating}
-                </p>
-                <button
-                  className="btn btn-success mt-2 w-100"
-                  onClick={() => handleBuy(model.id)}
-                  style={{
-                    borderRadius: '25px',
-                    padding: '12px 25px',
-                    fontWeight: 'bold',
-                    background: 'linear-gradient(135deg,rgb(69, 125, 190) 0%,rgb(74, 182, 212) 100%)',
-                    color: '#fff',
-                    boxShadow: '0 3px 6px rgba(0, 0, 0, 0.1)',
-                    transition: 'background 0.3s ease, transform 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
-                    e.currentTarget.style.background = 'linear-gradient(135deg,rgb(33, 105, 136) 0%,rgb(116, 147, 202) 100%)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'scale(1)';
-                    e.currentTarget.style.background = 'linear-gradient(135deg,rgb(126, 118, 236) 0%,rgb(60, 115, 192) 100%)';
-                  }}
-                >
-                  Buy Model
-                </button>
+            <div className="model-card">
+              <div className="model-card-image">
+                <img src={model.image} alt={model.name} />
+                <span className="badge">{model.type}</span>
+              </div>
+              <div className="model-card-body">
+                <h5 className="model-card-title">{model.name}</h5>
+                <p className="model-card-description">{model.description}</p>
+                <div className="model-card-footer">
+                  <span className="rating">⭐ {model.rating}</span>
+                  <span className="downloads">{model.downloads}+</span>
+                  <span className="price">{model.price}</span>
+                </div>
+                <button className="btn view-details-btn">View Details →</button>
               </div>
             </div>
           </div>

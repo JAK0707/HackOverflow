@@ -1,25 +1,27 @@
 /* Underline the active route */
 .navbar .nav-link.active-route {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: rgba(147, 51, 234, 0.3); /* Semi-transparent purple */
+  color: #fff;
   font-weight: bold;
+  border-bottom: 2px solid #9333ea; /* Solid purple bottom border */
 }
 
 .navbar .nav-link {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #212529;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  padding: 0.35rem 0.8rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center; /* Center align nav link text */
   white-space: nowrap; /* Prevent text wrapping */
 }
 
 .navbar .nav-link:hover {
-  background-color: #f8f9fa;
-  color: #0056b3;
+  background-color: rgba(168, 85, 247, 0.2); /* Lighter purple with transparency */
+  color: #fff;
 }
 
 /* Sticky navbar */
@@ -32,25 +34,25 @@
   top: 0;
   z-index: 1030;
   width: 100%; /* Ensure navbar spans the full width */
-  background-color: #ffffff; /* Solid white background */
+  background: linear-gradient(135deg, #2d1b4e 0%, #000000 100%); /* Gradient background */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   border-bottom: 2px solid #f0f0f0; /* Add a bottom border */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
   text-align: center; /* Ensure text alignment */
   white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Add shadow and background color when scrolled */
 .navbar.scrolled {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #1a0f2e 0%, #000000 100%); /* Slightly darker gradient */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the brand text */
 .navbar .navbar-brand {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #007bff;
+  font-weight: 700;
+  color: #ffffff;
   text-decoration: none;
   font-family: 'Poppins', sans-serif; /* Use a modern font */
   transition: color 0.3s ease;
@@ -59,7 +61,8 @@
 }
 
 .navbar .navbar-brand:hover {
-  color: #0056b3;
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .navbar .navbar-brand .brand-highlight {
@@ -69,7 +72,7 @@
 
 .navbar .navbar-nav {
   display: flex;
-  gap: 1.5rem; /* Space between nav items */
+  gap: 0.8rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -100,4 +103,43 @@
     width: 100%;
     text-align: left;
   }
+}
+
+/* Connect Wallet Button Styles */
+.connect-wallet-btn {
+  background: transparent;
+  color: #9333ea;
+  border: 2px solid #9333ea;
+  padding: 0.35rem 0.8rem; /* Match navbar link padding */
+  font-weight: 600;
+  font-size: 0.9rem; /* Match navbar link font size */
+  border-radius: 4px; /* Match navbar link border radius */
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.connect-wallet-btn:hover {
+  background: #9333ea;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.connect-wallet-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Authenticated wallet container styles */
+.wallet-container .hidden.md\:inline-block {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.wallet-container .hidden.md\:inline-block:hover {
+  border-color: #9333ea;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.2);
 }

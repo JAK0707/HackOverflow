@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navbar.css'; // Import the custom CSS file
+import { ConnectWallet } from '@nfid/identitykit/react';
+import { useAuth } from '../StateManagement/useContext/useClient';
+import './Navbar.css';
+
+const ConnectBtn = ({ onClick }) => (
+  <button onClick={onClick} className="connect-wallet-btn">
+    <div className="connect-wallet-content">
+      Connect Wallet
+    </div>
+  </button>
+);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { isAuthenticated, principal } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,16 +87,7 @@ const Navbar = () => {
             Research Assistant
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink
-            className={({ isActive }) =>
-              `nav-link ${isActive ? 'active-route' : ''}`
-            }
-            to="/model-apps"
-          >
-            Model Apps
-          </NavLink>
-        </li>
+        
         <li className="nav-item">
           <NavLink
             className={({ isActive }) =>
@@ -117,6 +119,26 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
+      <div className="wallet-container">
+        {!isAuthenticated ? (
+          <div className="hidden font-posterama md:block">
+            <ConnectWallet
+              connectButtonComponent={ConnectBtn}
+              className="rounded-full bg-black"
+            />
+          </div>
+        ) : (
+          <div className="hidden md:inline-block relative rounded-2xl bg-gradient-to-r from-[#f09787] to-[#CACCF5] text-left p-[1.5px]">
+            <div className="bg-black h-full w-full rounded-2xl flex items-center p-1 px-3">
+              <div className="flex flex-col items-start w-24 h-8 lg:w-40 lg:h-full">
+                <span className="text-[10px] lg:text-xs text-gray-400 w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                  {principal?.toString() || "N/A"}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };
